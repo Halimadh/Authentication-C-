@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model WebApp.Models.Entities.Labo
+@{
+
+    ViewData["Title"] = "Home Page";
+    Layout = "Auth_layout";
+}
+<div class="login-wrap">
+    @using (Html.BeginForm()) {
+    <form class="modal-content" method="POST" asp-controller="Register">
+    <h2>Inscription</h2>
+    <div class="form">
+        <input placeholder="Nom" value="" asp-for="Name" />
+        <input placeholder="Email" value="moussa@gmail.com"  asp-for="Email" />
+        <input placeholder="Password" value="aa1234" asp-for="Password" />
+        @Html.ValidationMessageFor(model => model.Password,"",new {@class="text-danger"})
+        <input placeholder="Confirm Password" value="aa1234" asp-for="ConfirmPassword" />
+        @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        <input placeholder="Acronyme" value="" asp-for="Acronyme" />
+        <input placeholder="Tel" value="" asp-for="Tel" />
+        <input placeholder="Etablissement" value="" asp-for="Etablissement" />
+        <input placeholder="Responsable" value="" asp-for="Responsable" />
+        <button asp-action="signUp" type="submit">S'inscrire </button>
+    </div>
+    </form>
+    }
+</div>
+

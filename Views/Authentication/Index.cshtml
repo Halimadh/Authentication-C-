@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model WebApp.Models.Entities.LoginModel
+@{
+
+    ViewData["Title"] = "Home Page";
+    Layout = "Auth_layout";
+}
+<div class="login-wrap">
+    
+    <form class="modal-content" method="POST" asp-controller="Authentication">
+    <h2>Login</h2>
+    <div class="form">
+        <input placeholder="Email" value="moussa@gmail.com"  asp-for="Email" />
+        <input  placeholder="Password" value="aa1234"  asp-for="Password" />
+        <button asp-action="Login" type="submit"> Sign in </button>
+        <a asp-action="" asp-controller="PasswordReset"> <p> Forgot password?</p></a>
+        <a asp-action="" asp-controller="Register"> <p> Don't have an account? Register </p></a>
+        
+    </div>
+    </form>
+</div>
+
+
+@*
+<!-- The Modal -->
+<div id="id01" class="modal-center">
+    <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">&times;</span>
+
+    <!-- Modal Content -->
+    <form class="modal-content" method="POST" asp-controller="Authentication">
+        <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input id="Email" type="text" placeholder="Enter Email" value="moussa@gmail.com" asp-for="Email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input id="password" type="password" placeholder="Enter Password" value="aa1234" asp-for="Password" required>
+
+            <button asp-action="Login" type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>*@
+
